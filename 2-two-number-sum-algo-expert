@@ -1,0 +1,29 @@
+// Time complexity: O(n)
+// Space complexity: O(1)
+
+function twoNumberSum(arr, target){
+    arr.sort((x, y)=>x > y ? 1 : -1); // O(nlogn)
+
+    let left = 0;
+    let right = arr.length - 1;
+    while(left < right){ // O(n)
+        let firstNum = arr[left];
+        let secondNum = arr[right];
+        
+        let sum = firstNum + secondNum;
+        if(sum === target){
+            return [firstNum, secondNum];
+        }
+        else if( sum < target ){
+            left++;
+        }else if(sum > target){
+            right--;
+        }
+    }
+    
+    return [];
+}
+
+
+let arr = [3, 5, -4, 8, 11, 1, -1, 6];
+twoNumberSum(arr, 10);
