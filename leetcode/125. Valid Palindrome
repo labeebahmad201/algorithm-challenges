@@ -1,0 +1,58 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    
+    let left = 0;
+    let right = s.length - 1;
+    
+    while(left < right){
+        let leftChar = s[left].toLowerCase();
+        let leftCharCode = leftChar.charCodeAt(0);
+
+        let rightChar = s[right].toLowerCase();
+        let rightCharCode = rightChar.charCodeAt(0);
+        
+        if(
+            !(
+                (leftCharCode >= 97 && leftCharCode <= 122)
+                ||
+                (leftCharCode >= 48 && leftCharCode <= 57)
+            )
+          ){
+            left++;
+            continue;
+            }
+    
+        if(
+            !(
+                (rightCharCode >= 97 && rightCharCode <= 122)
+                ||
+                (rightCharCode >= 48 && rightCharCode <= 57)
+            )
+          ){
+            right--;
+            continue;
+            }        
+       
+        if(leftChar !== rightChar){
+            return false;
+        }
+        
+        
+        left++;
+        right--;
+    }
+    
+    return true;
+    
+};
+
+
+// 0, 1, 2, 3, 4
+// aa b aa
+// input: "A man, a plan, a canal: Panama"
+// output: true
+
+
