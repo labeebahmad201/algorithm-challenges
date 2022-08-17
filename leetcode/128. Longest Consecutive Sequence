@@ -1,0 +1,35 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var longestConsecutive = function(nums) {
+  console.log('nums', nums);
+    const s = new Set(nums);
+    
+    let longest = 0;
+    
+    for(let i = 0; i < nums.length; i++){
+        // is this the start of sequenece....
+        let current = nums[i];
+        if(!s.has(current-1)){
+            // this is start of sequence 
+            let length = 0;
+            while(s.has(current)){
+                length++;
+                current++;
+            }            
+            longest = length > longest ? length : longest; 
+        }
+    }
+    
+    return longest;
+};
+
+let output = longestConsecutive([100,4,200,1,3,2]);
+
+console.log(output); // 4
+
+// following is just for visualizing data.
+// 1,2,3,4 .... 
+// 100 .... 
+// 200
