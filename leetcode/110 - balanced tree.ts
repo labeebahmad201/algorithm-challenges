@@ -19,7 +19,7 @@ function getHeight (root: TreeNode | null) : number {
 
     const leftHeight = getHeight(root.left);
     const rightHeight = getHeight(root.right);
-    if(leftHeight === -1 || rightHeight === -1) {
+    if(leftHeight === -1 || rightHeight === -1) { // propagates signal to the caller that callee has determined that tree is unbalanced so no need to look any further. 
         return -1;
     }
 
