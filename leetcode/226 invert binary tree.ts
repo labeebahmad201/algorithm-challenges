@@ -48,5 +48,7 @@ function invertTree(root: TreeNode | null): TreeNode | null {
         return null;
     }
     return new TreeNode(root.val, invertTree(root.right), invertTree(root.left)); // important point to be noticed here is that children are created 
-    // first and then parent is created
+    // first and then parent is created.
+    // this pattern of creation is repeated in tree problems where we are creating a node and repeating the same process for the children as well. 
+    // this can be called an implementation pattern
 };
