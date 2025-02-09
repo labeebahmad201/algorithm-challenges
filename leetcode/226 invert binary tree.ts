@@ -47,5 +47,6 @@ function invertTree(root: TreeNode | null): TreeNode | null {
     if(!root) {
         return null;
     }
-    return new TreeNode(root.val, invertTree(root.right), invertTree(root.left));
+    return new TreeNode(root.val, invertTree(root.right), invertTree(root.left)); // important point to be noticed here is that children are created 
+    // first and then parent is created
 };
