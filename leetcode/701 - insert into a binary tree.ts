@@ -24,3 +24,10 @@ function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
 
     return root;
 };
+
+/****
+ * Intuition: Goes left if node is smaller than the current or goes right if the node is greater than the current,
+ * reaches the null and at that instance create a node and returns.
+ * that is used by caller to insert into as relevant child. How does caller know where to insert child? caller has that context from the 
+ * sequence of calls made, caller knows which child insertIntoBST was called for.  
+ */
