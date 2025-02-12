@@ -31,3 +31,36 @@ function insertIntoBST(root: TreeNode | null, val: number): TreeNode | null {
  * that is used by caller to insert into as relevant child. How does caller know where to insert child? caller has that context from the 
  * sequence of calls made, caller knows which child insertIntoBST was called for.  
  */
+
+
+function insert(node, val) {
+    if (!node) {
+        return new Node(val);
+    } 
+    
+    if (node.val === val) { // this one doesn't inject duplicate, it just returns the node.
+        return node; 
+    }
+    
+    if (val < node.val) {
+        node.left = insert(node.left, val);
+    } else {
+        node.right = insert(node.right, val);
+    }
+    
+    return node; 
+}
+
+function insertIntoBSTV1(node, val) {
+    if (node === null) {
+        return new Node(val);
+    }
+
+    if (val <= node.val) {  // Duplicates go to the left
+        node.left = insertIntoBSTV1(node.left, val);
+    } else {
+        node.right = insertIntoBSTV1(node.right, val);
+    }
+
+    return node;
+}
