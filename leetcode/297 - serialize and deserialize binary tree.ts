@@ -21,6 +21,12 @@
  * the moment when you saw 2 needs to be linked up as child of 1. that should have dead give away that we need to attach 2 as child of 1
  * and that this function need to return root that would be used by caller to attach new node as child. 
  *  
+ * 
+ * 
+ * Initially it can be confusing as to how a preorder traversal can uniquely identify a binary tree. Turns out that it can do so ONLY if we 
+ * include null nodes in the preorder traversal serialization.
+
+
  */
 
 /*
