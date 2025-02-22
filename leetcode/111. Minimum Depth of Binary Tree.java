@@ -26,7 +26,7 @@ class Solution {
         while (queue.size() > 0) {
             int nodesToRead = queue.size();
 
-            for (int i = 1; i <= nodesToRead; i++) {
+            for (int i = 1; i <= nodesToRead; i++) { // for (int i = 1; i <= nodesToRead; i++) { 
                 TreeNode node = queue.pop();
                 if (node.left == null && node.right == null) { // checks for all nodes.
                     // if it is a leaf node
