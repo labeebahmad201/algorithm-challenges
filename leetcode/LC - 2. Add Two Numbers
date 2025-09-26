@@ -1,0 +1,40 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function addTwoNumbers(l1: ListNode | null, l2: ListNode | null, ans = []): ListNode | null {
+
+    let dummyNode = new ListNode(0);
+    let current = dummyNode;
+
+    let tempL1 = l1;
+    let tempL2 = l2;
+    let carry = 0;
+
+    while (tempL1 !== null || tempL2 !== null || carry > 0) {
+        let sum = carry;
+        if (tempL1 != null) {
+            sum += tempL1.val;
+            tempL1 = tempL1.next;
+        }
+
+        if (tempL2 != null) {
+            sum += tempL2.val;
+            tempL2 = tempL2.next;
+        }
+
+        carry = Math.floor(sum / 10);
+        current.next = new ListNode(sum % 10);
+        current = current.next;
+    }
+
+    return dummyNode.next;
+};
